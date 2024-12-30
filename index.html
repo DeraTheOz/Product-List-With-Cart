@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+        <link rel="stylesheet" href="src/assets/styles/reset.css" />
+        <link rel="stylesheet" href="src/assets/styles/main.css" />
+
+        <title>Product list with cart</title>
+    </head>
+    <body>
+        <main>
+            <section class="menu">
+                <div class="menu__container">
+                    <h2 class="menu__title">Desserts</h2>
+
+                    <div class="menu__grid">
+                        <!-- MENU ITEMS START -->
+                        <article class="menu__item">
+                            <figure class="menu__img--box">
+                                <img
+                                    src="src/assets/images/image-waffle-desktop.jpg"
+                                    alt="waffle with berries"
+                                    class="img active"
+                                />
+
+                                <!-- BUTTON DEFAULT STATE START -->
+                                <!-- <button type="button" class="menu__btn">
+                                    <svg class="icon-add-to-cart">
+                                        <use xlink:href="src/assets/images/icon-add-to-cart.svg#icon-cart"></use>
+                                    </svg>
+                                    Add to Cart
+                                </button> -->
+                                <!-- BUTTON DEFAULT STATE END -->
+
+                                <!-- BUTTON SELECTED STATE START -->
+                                <div class="menu__btn--active" role="group" aria-label="Quantity Control">
+                                    <button
+                                        type="button"
+                                        class="menu__btn--1"
+                                        aria-label="Decrease Quantity"
+                                        data-name="decrement"
+                                    >
+                                        <svg class="icon-decrement" aria-hidden="true">
+                                            <use
+                                                xlink:href="src/assets/images/icon-decrement-quantity.svg#icon-decrement"
+                                            ></use>
+                                        </svg>
+                                    </button>
+                                    <span class="increment-amount" aria-live="polite" aria-atomic="true">4</span>
+                                    <button
+                                        type="button"
+                                        class="menu__btn--2"
+                                        aria-label="Increase Quantity"
+                                        data-name="increment"
+                                    >
+                                        <svg class="icon-increment" aria-hidden="true">
+                                            <use
+                                                xlink:href="src/assets/images/icon-increment-quantity.svg#icon-increment"
+                                            ></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <!-- BUTTON SELECTED STATE END -->
+                            </figure>
+                            <p class="menu__type">Waffle</p>
+                            <p class="menu__name">Waffle with Berries</p>
+                            <p class="menu__price">$6.50</p>
+                        </article>
+
+                        <article class="menu__item">
+                            <figure class="menu__img--box">
+                                <img src="src/assets/images/image-cake-desktop.jpg" alt="Red Velvet Cake" class="img" />
+                                <button type="button" class="menu__btn">
+                                    <svg class="icon-add-to-cart">
+                                        <use xlink:href="src/assets/images/icon-add-to-cart.svg#icon-cart"></use>
+                                    </svg>
+                                    Add to Cart
+                                </button>
+                            </figure>
+                            <p class="menu__type">Cake</p>
+                            <p class="menu__name">Red Velvet Cake</p>
+                            <p class="menu__price">$4.50</p>
+                        </article>
+
+                        <article class="menu__item">
+                            <figure class="menu__img--box">
+                                <img
+                                    src="src/assets/images/image-waffle-desktop.jpg"
+                                    alt="waffle with berries"
+                                    class="img"
+                                />
+                                <button type="button" class="menu__btn">
+                                    <svg class="icon-add-to-cart">
+                                        <use xlink:href="src/assets/images/icon-add-to-cart.svg#icon-cart"></use>
+                                    </svg>
+                                    Add to Cart
+                                </button>
+                            </figure>
+                            <p class="menu__type">Waffle</p>
+                            <p class="menu__name">Waffle with Berries</p>
+                            <p class="menu__price">$6.50</p>
+                        </article>
+
+                        <article class="menu__item">
+                            <figure class="menu__img--box">
+                                <img
+                                    src="src/assets/images/image-waffle-desktop.jpg"
+                                    alt="waffle with berries"
+                                    class="img"
+                                />
+                                <button type="button" class="menu__btn">
+                                    <svg class="icon-add-to-cart">
+                                        <use xlink:href="src/assets/images/icon-add-to-cart.svg#icon-cart"></use>
+                                    </svg>
+                                    Add to Cart
+                                </button>
+                            </figure>
+                            <p class="menu__type">Waffle</p>
+                            <p class="menu__name">Waffle with Berries</p>
+                            <p class="menu__price">$6.50</p>
+                        </article>
+                        <!-- MENU ITEMS END -->
+                    </div>
+                </div>
+
+                <div class="cart__container">
+                    <!-- CART EMPTY START -->
+                    <aside class="cart">
+                        <h3 class="cart__title">
+                            Your Cart (<span aria-live="polite" class="cart__quantity">0</span>)
+                        </h3>
+
+                        <div class="cart__items--container center">
+                            <svg class="icon-cart-empty" aria-hidden="true">
+                                <use xlink:href="src/assets/images/illustration-empty-cart.svg#cart-empty"></use>
+                            </svg>
+                            <p class="cart__empty--text">Your added items will appear here</p>
+                        </div>
+                    </aside>
+                    <!-- CART EMPTY END  -->
+
+                    <!-- CART ACTIVE START -->
+                    <aside class="cart__active">
+                        <h3 class="cart__title">
+                            Your Cart (<span aria-live="polite" class="cart__quantity">0</span>)
+                        </h3>
+
+                        <div class="cart__items--box">
+                            <div class="cart__items--container">
+                                <!-- CART ITEMS START -->
+                                <article class="cart__item">
+                                    <div class="cart__item--details">
+                                        <p class="cart__item--name item--name">Classic Tiramisu</p>
+                                        <div class="item--details__box">
+                                            <span class="cart__item--quantity item--quantity">1x</span>
+                                            <span class="cart__item--price">@$6.50</span>
+                                            <span class="cart__item--price-total">$6.50</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="cart__item--btn" aria-label="Remove Menu Item">
+                                        <svg class="icon-remove-item" aria-label="Remove Item">
+                                            <use xlink:href="src/assets/images/icon-remove-item.svg#icon-remove"></use>
+                                        </svg>
+                                    </button>
+                                </article>
+
+                                <article class="cart__item">
+                                    <div class="cart__item--details">
+                                        <p class="cart__item--name item--name">Classic Tiramisu</p>
+                                        <div class="item--details__box">
+                                            <span class="cart__item--quantity item--quantity">1x</span>
+                                            <span class="cart__item--price">@$6.50</span>
+                                            <span class="cart__item--price-total">$6.50</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="cart__item--btn" aria-label="Remove Menu Item">
+                                        <svg class="icon-remove-item" aria-label="Remove Item">
+                                            <use xlink:href="src/assets/images/icon-remove-item.svg#icon-remove"></use>
+                                        </svg>
+                                    </button>
+                                </article>
+                                <!-- CART ITEMS END -->
+                            </div>
+
+                            <!-- TOTAL AMOUNT CART ITEMS START -->
+                            <div class="cart__items__total">
+                                <p>Order Total</p>
+                                <p class="cart__items__total--amount">$46.50</p>
+                            </div>
+                            <!-- TOTAL AMOUNT CART ITEMS END  -->
+
+                            <!-- CARBON NEUTRAL DELIVERY START -->
+                            <div class="carbon__neutral--delivery">
+                                <svg class="icon-carbon-neutral">
+                                    <use xlink:href="src/assets/images/icon-carbon-neutral.svg#icon-carbon"></use>
+                                </svg>
+                                <p>This is a <span>carbon neutral</span> delivery</p>
+                            </div>
+                            <!-- CARBON NEUTRAL DELIVERY END -->
+                            <button type="button" class="cart__order--btn cta-btn">Confirm Order</button>
+                        </div>
+                    </aside>
+                    <!-- CART ACTIVE END -->
+                </div>
+            </section>
+
+            <!-- ORDER CONFIRMED MODAL START -->
+            <!-- <div class="modal"></div> -->
+            <div class="order__success">
+                <svg class="icon-order-confirmed" aria-hidden="true">
+                    <use xlink:href="src/assets/images/icon-order-confirmed.svg#icon-confirmed"></use>
+                </svg>
+                <h3 class="order__title">Order Confirmed</h3>
+                <p class="order__text">We hope you enjoy your food!</p>
+
+                <!-- ORDER DETAILS START -->
+                <div class="order__details">
+                    <!-- ORDER ITEMS START -->
+                    <div class="order__items--container">
+                        <article class="order__item">
+                            <img
+                                class="order__item--img"
+                                src="src/assets/images/image-waffle-desktop.jpg"
+                                alt="Waffle with berries"
+                            />
+                            <div class="order__item--details">
+                                <p class="order__item--name item--name">Classic Tiramisu</p>
+                                <div class="item--details__box">
+                                    <span class="order__item--quantity item--quantity">1x</span>
+                                    <span class="order__item--price item--price">@$6.50</span>
+                                </div>
+                            </div>
+                            <p class="order__item__price--total">$6.50</p>
+                        </article>
+                    </div>
+                    <!-- ORDER ITEMS END TOTAL AMOUNT ORDERED ITEMS START -->
+                    <div class="order__items__total">
+                        <p>Order Total</p>
+                        <p class="order__items__total--amount">$46.50</p>
+                    </div>
+                    <!-- TOTAL AMOUNT ORDERED ITEMS END -->
+                </div>
+                <!-- ORDER DETAILS END -->
+
+                <button type="button" class="order__success--btn cta-btn">Start New Order</button>
+            </div>
+            <!-- ORDER CONFIRMED MODAL END -->
+        </main>
+    </body>
+</html>
