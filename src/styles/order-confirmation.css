@@ -1,0 +1,52 @@
+/* // ORDER CONFIRMATION STATE START // */
+.order__confirmation {
+    width: clamp(23.438rem, 100%, 30rem);
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid var(--Red); */
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    /* position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    z-index: 999;
+}
+
+.order__title {
+    font-size: 2rem;
+    padding: 0.8rem 0 0.3rem;
+}
+
+.order__text {
+    color: var(--Rose-500);
+}
+
+.order__details {
+    background-color: var(--Rose-50);
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.order__items--container {
+    max-height: 16.25rem;
+    overflow-y: scroll;
+    padding: 0 1.3rem;
+}
+
+.order__item--img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    margin-right: 1rem;
+}
+
+.order__item__price--total {
+    color: var(--Rose-900);
+    font-weight: 600;
+}
+
+.order__items__total {
+    padding: 0 1.3rem;
+}
+/* // ORDER CONFIRMATION STATE END // */
