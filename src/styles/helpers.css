@@ -1,13 +1,14 @@
-.menu,
+/* .menu,
 .container,
 .cart,
 .cart__filled {
     border: 1px solid red;
-}
+} */
 
 /* ACTIVE class for menu image */
 .menu__img--border {
     border: 2px solid var(--Red);
+    
 }
 
 .cart,

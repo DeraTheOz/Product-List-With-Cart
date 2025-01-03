@@ -23,11 +23,13 @@
 
 .menu__img--box {
     position: relative;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: border 0.3s ease-in;
 }
 
 .menu__img {
-    border-radius: 8px;
-    object-fit: cover;
+    border-radius: 6px;
 }
 
 .menu__btn {
@@ -49,7 +51,7 @@
     bottom: 0;
     transform: translate(-50%, 50%);
     cursor: pointer;
-    transition: all 0.15s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 .menu__btn:hover {
@@ -93,6 +95,7 @@
     bottom: 0;
     transform: translate(-50%, 50%);
     cursor: pointer;
+    transition: all 0.1s ease-in;
 }
 
 .menu__item--quantity {
