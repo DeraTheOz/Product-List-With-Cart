@@ -1,13 +1,14 @@
-import { productModel } from '../models/product-model.js';
-import { cartModel } from '../models/cart-model.js';
-import { cartView } from '../views/cart-view.js';
-
-
-import productData from '../../data/data.json';
+// import productData from '../../data/data.json';
 import { resolveImagePaths } from '../utils/resolve-image-paths.js';
+import { menuModel } from '../models/menu-model.js';
 import { menuView } from '../views/menu-item-view.js';
+import { menuController } from './menu-controller.js';
+import { cartController } from './cart-controller.js';
 
+menuController.init();
+cartController.init();
 
+/*
 // Resolve image paths
 const menuData = resolveImagePaths(productData);
 
@@ -17,15 +18,15 @@ menuItem.renderDefaultState();
 
 const menuContainer = document.querySelector('.menu__grid');
 menuContainer.addEventListener('click', function (e) {
-    const btn = e.target;
+    const btn = e.target.closest('.menu__btn');
+    if (!btn) return;
 
-    if (btn.closest('.menu__btn')) {
-        const item = btn.closest('.menu__item');
-        const name = item.querySelector('.menu__name')?.textContent;
-        console.log(item);
-        console.log(name);
+    const item = btn.closest('.menu__item');
+    const name = item.querySelector('.menu__name')?.textContent;
+    console.log(item);
+    console.log(name);
 
-        // Update clicked state
-        menuItem.renderClickedState(item, name);
-    }
+    // Update clicked state
+    menuItem.renderClickedState(item, name);
 });
+*/

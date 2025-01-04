@@ -1,6 +1,6 @@
 import icons from '../../assets/icons/icons.svg';
 
-export const menuView = function (data) {
+export const menuView = function () {
     const menuContainer = document.querySelector('.menu__grid');
 
     return {
@@ -38,7 +38,8 @@ export const menuView = function (data) {
                                 `
                                     : `
                                     <!-- BUTTON DEFAULT STATE START -->
-                                    <button type="button" class="menu__btn" aria-label="Add ${name} to cart">
+                                    <button type="button" class="menu__btn" aria-label="Add ${name}
+                                    to cart">
                                         <svg class="icon-cart">
                                             <use xlink:href="${icons}#icon-add-to-cart"></use>
                                         </svg>
@@ -55,20 +56,19 @@ export const menuView = function (data) {
                 `;
         },
 
-        renderDefaultState() {
-            data.map(menuItem => {
-                menuContainer.insertAdjacentHTML('beforeend', this.generateMarkup(menuItem));
-            });
+        renderDefaultState(menuData) {
+            const markup = menuData.map(item => this.generateMarkup(item)).join('');
+            menuContainer.innerHTML = markup;
+
+
         },
 
-        renderClickedState(menuItem, itemName) {
-            const itemData = data.find(item => item.name === itemName);
-            console.log(menuItem);
-            if (!itemData) return;
+        updateButtonState(menuEl, menuItem, isclicked) {
+            menuEl.innerHTML = this.generateMarkup(menuItem, isclicked).replace(/<article[^>]*>|<\/article>/g, '');
 
-            // Generate new markup and replace any existing <article> tag
-            const newContent = this.generateMarkup(itemData, true).replace(/<article[^>]*>|<\/article>/g, '');
-            menuItem.innerHTML = newContent;
         }
+
     };
 };
+
+
