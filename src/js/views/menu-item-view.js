@@ -5,7 +5,7 @@ export const menuView = function () {
 
     return {
         generateMarkup(item, clicked = false) {
-            const { image, name, category, price, quantity  } = item;
+            const { image, name, category, price, quantity } = item;
             const { thumbnail, mobile, tablet, desktop } = image;
 
             return `
