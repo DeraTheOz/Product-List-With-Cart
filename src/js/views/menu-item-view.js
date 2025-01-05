@@ -58,6 +58,18 @@ export const menuView = function () {
                 `;
         },
 
+        renderSingleDefaultState(menuEl, menuItem) {
+            console.log(menuEl, menuItem);
+
+            // Generate default button markup
+            const defaultMarkup = this.generateMarkup(menuItem, false).replace(/<article[^>]*>|<\/article>/g, ''); // Strip wrapping <article> tags
+
+            // Replace the button content only
+            menuEl.innerHTML = defaultMarkup;
+
+            
+        },
+
         renderDefaultState(menuData) {
             const markup = menuData.map(item => this.generateMarkup(item)).join('');
             menuContainer.innerHTML = markup;
