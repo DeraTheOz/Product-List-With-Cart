@@ -5,7 +5,7 @@ export const menuView = function () {
 
     return {
         generateMarkup(item, clicked = false) {
-            const { image, name, category, price } = item;
+            const { image, name, category, price, quantity  } = item;
             const { thumbnail, mobile, tablet, desktop } = image;
 
             return `
@@ -22,13 +22,15 @@ export const menuView = function () {
                                     ? `
                                     <!-- BUTTON CLICKED STATE START -->
                                     <div class="menu__btn--active" role="group" aria-label="Quantity Control">
-                                        <button type="button" class="menu__btn--1" aria-label="Decrease Quantity" data-name="decrement">
+                                        <button type="button" class="menu__btn--decrement" aria-label="Decrease Quantity" data-name="decrement">
                                             <svg class="icon-decrement" aria-hidden="true">
                                                 <use xlink:href="${icons}#icon-decrement-quantity"></use>
                                             </svg>
                                         </button>
-                                        <span class="menu__item--quantity" aria-live="polite" aria-atomic="true">1</span>
-                                        <button type="button" class="menu__btn--2" aria-label="Increase Quantity" data-name="increment">
+                                        <span class="menu__item--quantity"
+                                        aria-live="polite"
+                                        aria-atomic="true">${quantity}</span>
+                                        <button type="button" class="menu__btn--increment" aria-label="Increase Quantity" data-name="increment">
                                             <svg class="icon-increment" aria-hidden="true">
                                                 <use xlink:href="${icons}#icon-increment-quantity"></use>
                                             </svg>
@@ -59,16 +61,16 @@ export const menuView = function () {
         renderDefaultState(menuData) {
             const markup = menuData.map(item => this.generateMarkup(item)).join('');
             menuContainer.innerHTML = markup;
-
-
         },
 
         updateButtonState(menuEl, menuItem, isclicked) {
             menuEl.innerHTML = this.generateMarkup(menuItem, isclicked).replace(/<article[^>]*>|<\/article>/g, '');
+        },
 
+        updateQuantityDisplay(menuEl, quantity) {
+            const quantityDisplay = menuEl.querySelector('.menu__item--quantity');
+            if (!quantityDisplay) return;
+            quantityDisplay.textContent = quantity;
         }
-
     };
 };
-
-

@@ -1,4 +1,3 @@
-// import productData from '../../data/data.json';
 import { resolveImagePaths } from '../utils/resolve-image-paths.js';
 import { menuModel } from '../models/menu-model.js';
 import { menuView } from '../views/menu-item-view.js';

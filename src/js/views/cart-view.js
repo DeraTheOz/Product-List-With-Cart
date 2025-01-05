@@ -4,6 +4,10 @@ import icons from '../../assets/icons/icons.svg';
 export const cartView = {
     _cartContainer: document.querySelector('.cart__container'),
     _cartItemContainer: document.querySelector('.cart__items--container'),
+    
+    getMenuItems(menuItem) {
+        return [menuItem]
+    },
 
     _menuItem: [
         {
@@ -32,8 +36,8 @@ export const cartView = {
         this._cartContainer.insertAdjacentHTML('afterbegin', markup);
     },
 
-    renderMenuItem(menuItem) {
-        menuItem.map(item => {
+    renderMenuItem() {
+        this.getMenuItems.map(item => {
             const { name, price, quantity, totalPrice } = item;
 
             console.log(name);
@@ -74,7 +78,7 @@ export const cartView = {
             
                 <div class="cart__items--box">
                     <div class="cart__items--container">
-                       ${this.renderMenuItem(this._menuItem)} 
+                       
                     </div>
             
                     <!-- TOTAL AMOUNT CART ITEMS START -->
@@ -97,7 +101,6 @@ export const cartView = {
             </aside>
             <!-- CART FILLED END -->
         `;
-        this._cartContainer.innerHTML = '';
-        this._cartContainer.insertAdjacentHTML('afterbegin', markup);
+        
     }
 };
