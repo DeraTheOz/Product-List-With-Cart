@@ -94,23 +94,21 @@ export const cartView = {
 
     updateCartSummary(cartItemsContainer) {
         if (!cartItemsContainer) return;
-        console.log(cartItemsContainer);
-        const totalItems = cartItemsContainer.querySelectorAll('.cart__item').length;
-        console.log(totalItems);
+
         const totalAmount = Array.from(cartItemsContainer.querySelectorAll('.cart__item--price-total')).reduce(
             (sum, priceEl) => sum + parseFloat(priceEl.textContent.slice(1)),
             0
         );
         const totalCartQuantity = Array.from(cartItemsContainer.querySelectorAll('.item--quantity')).reduce(
-            (quantityEl, quantityAmount) => quantityEl + parseFloat(quantityAmount.textContent),
+            (sum, quantityAmount) => sum + parseFloat(quantityAmount.textContent),
             0
         );
         console.log(totalCartQuantity);
 
         const cartQuantityEl = document.querySelector('.cart__quantity');
         const totalAmountEl = document.querySelector('.cart__items__total--amount');
-
         console.log(cartQuantityEl);
+
         cartQuantityEl.textContent = totalCartQuantity;
         totalAmountEl.textContent = `$${totalAmount.toFixed(2)}`;
     },

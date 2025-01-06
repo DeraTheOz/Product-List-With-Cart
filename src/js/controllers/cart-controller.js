@@ -31,15 +31,48 @@ export const cartController = {
 
     removeCartItem(itemName) {
         cartModel.removeItem(itemName);
-        // this.renderCart();
+        
 
+        // Locate cart item using it's data-name and remove from cart
+        const cartItemEl = document.querySelector(`.cart__item[data-name="${itemName}"]`);
+        console.log(cartItemEl);
+        if (cartItemEl) cartItemEl.remove();
+
+        // Get remaining cart items from model
         const remainingItems = cartModel.getCartItems();
+        console.log('REMOVED ITEM ', itemName);
+        console.log('REMAINING ITEMS ', remainingItems);
+
         if (remainingItems.length === 0) {
             cartView.renderEmptyCart();
         } else {
-            cartView.renderCartItem(remainingItems);
+            // Update cart summary
+            cartView.updateCartSummary(document.querySelector('.cart__items--container'));
         }
+        // cartView.renderCartItem(remainingItems);
+
+        // cartModel.removeItem(removedItem);
+
+        // console.log(cartView.renderCartItem(itemEl));
+        // cartView.renderCartItem(itemEl);
     },
+
+    // removeCartItem(itemName) {
+    //     cartModel.removeItem(itemName);
+    //     const removedItem = cartModel.removeItem(itemName);
+    //     console.log('REMOVED ITEM ', removedItem);
+
+    //     // this.renderCart();
+
+    //     const remainingItems = cartModel.getCartItems();
+    //     console.log('REMAINING ITEMS ', remainingItems);
+
+    //     if (remainingItems.length === 0) {
+    //         cartView.renderEmptyCart();
+    //     } else {
+    //         cartView.renderCartItem(remainingItems);
+    //     }
+    // },
 
     renderCart(item) {
         console.log(item);

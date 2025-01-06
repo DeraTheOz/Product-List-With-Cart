@@ -58,6 +58,7 @@ export const menuController = {
                 const updatedItem = menuModel.decrementItemQuantity(itemName);
 
                 console.log('decreased');
+                
 
                 // Remove item from cart if quantity reaches 0
                 if (updatedItem.quantity === 0) {
