@@ -31,7 +31,6 @@ export const cartController = {
 
     removeCartItem(itemName) {
         cartModel.removeItem(itemName);
-        
 
         // Locate cart item using it's data-name and remove from cart
         const cartItemEl = document.querySelector(`.cart__item[data-name="${itemName}"]`);
@@ -49,12 +48,7 @@ export const cartController = {
             // Update cart summary
             cartView.updateCartSummary(document.querySelector('.cart__items--container'));
         }
-        // cartView.renderCartItem(remainingItems);
 
-        // cartModel.removeItem(removedItem);
-
-        // console.log(cartView.renderCartItem(itemEl));
-        // cartView.renderCartItem(itemEl);
     },
 
     // removeCartItem(itemName) {
