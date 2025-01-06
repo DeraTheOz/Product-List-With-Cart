@@ -5,20 +5,32 @@ import { orderModel } from '../models/order-model.js';
 export const cartController = {
     init() {
         cartView.renderEmptyCart();
-        this.renderCart();
     },
 
     addItemToCart(item) {
-        console.log(item);
         cartModel.addItem(item);
-        this.renderCart();
+
+        // If the cart is empty, clear the empty state
+        if (cartModel.getCartItems().length === 1) {
+            cartView.renderEmptyCart();
+        }
+
+        // Render the new item dynamically
+        cartView.renderCartItem(item);
     },
+
+    // Original code
+    // addItemToCart(item) {
+    //     console.log(item);
+    //     cartModel.addItem(item);
+    //     this.renderCart();
+    // },
 
     removeItemFromCart() {},
 
     renderCart() {
         const cartItems = cartModel.getCartItems();
         console.log(cartItems);
-        cartView.renderCart(cartItems);
+        cartView.renderFilledCart(cartItems);
     }
 };

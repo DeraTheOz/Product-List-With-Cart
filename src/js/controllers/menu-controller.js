@@ -2,7 +2,7 @@ import { menuModel } from '../models/menu-model.js';
 import { menuView } from '../views/menu-view.js';
 import { cartModel } from '../models/cart-model.js';
 import { cartView } from '../views/cart-view.js';
-import {cartController} from '../controllers/cart-controller.js'
+import { cartController } from '../controllers/cart-controller.js';
 
 /////////////////////////////////////////////////////
 export const menuController = {
@@ -33,8 +33,10 @@ export const menuController = {
             if (addToCartBtn) {
                 menuModel.setItemQuantity(itemName, 1);
                 const clickedMenuItem = menuModel.getMenuItemByName(itemName);
+                if (!clickedMenuItem) return;
+
                 menuView().updateButtonState(itemEl, clickedMenuItem, true);
-                cartModel.addItemToCart(clickedMenuItem);
+                cartController.addItemToCart(clickedMenuItem);
                 return;
             }
 
