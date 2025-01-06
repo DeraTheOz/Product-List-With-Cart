@@ -10,30 +10,41 @@ export const cartController = {
 
     addItemToCart(item) {
         console.log(item);
-        cartModel.addItem(item);
 
         // If the cart is empty, clear the empty state
         if (cartModel.getCartItems().length === 0) {
-            // set to 1 before
             cartView.renderEmptyCart();
         }
 
-        // Render the new item dynamically
+        // Add the item to the model
+        cartModel.addItem(item);
+
+        // Render the new item
         cartView.renderCartItem(item);
     },
 
-    // Original code
-    // addItemToCart(item) {
-    //     console.log(item);
-    //     cartModel.addItem(item);
-    //     this.renderCart();
-    // },
+    updateCartItem(menuItem) {
+        console.log(menuItem);
+        cartModel.updateItem(menuItem);
+        this.renderCart(menuItem);
+    },
 
-    removeItemFromCart() {},
+    removeCartItem(itemName) {
+        cartModel.removeItem(itemName);
+        // this.renderCart();
 
-    renderCart() {
-        const cartItems = cartModel.getCartItems();
-        console.log(cartItems);
-        cartView.renderFilledCart(cartItems);
+        const remainingItems = cartModel.getCartItems();
+        if (remainingItems.length === 0) {
+            cartView.renderEmptyCart();
+        } else {
+            cartView.renderCartItem(remainingItems);
+        }
+    },
+
+    renderCart(item) {
+        console.log(item);
+
+        // cartView.renderCartItem(cartItems);
+        cartView.renderCartItem(item);
     }
 };

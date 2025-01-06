@@ -43,11 +43,13 @@ export const menuController = {
             // Increment Button Logic
             if (incrementBtn) {
                 const updatedItem = menuModel.incrementItemQuantity(itemName);
+
+                // Update quantity in cart
+                cartController.updateCartItem(updatedItem);
+
                 menuView().updateQuantityDisplay(itemEl, updatedItem.quantity);
 
                 console.log('increased');
-                cartModel.increaseCartItem(itemName);
-
                 return;
             }
 
@@ -57,9 +59,13 @@ export const menuController = {
 
                 console.log('decreased');
 
+                // Remove item from cart if quantity reaches 0
                 if (updatedItem.quantity === 0) {
+                    cartController.removeCartItem(itemName);
                     menuView().renderSingleDefaultState(itemEl, updatedItem);
                 } else {
+                    // Update quantity in cart
+                    cartController.updateCartItem(updatedItem);
                     menuView().updateQuantityDisplay(itemEl, updatedItem.quantity);
                 }
                 return;

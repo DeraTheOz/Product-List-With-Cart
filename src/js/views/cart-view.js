@@ -48,10 +48,18 @@ export const cartView = {
             cartFilledContainer = cartContainer.querySelector('.cart__filled');
         }
 
-        // Insert the new cart item at the top
-        const cartItemsContainer = cartFilledContainer.querySelector('.cart__items--container');
-        const itemMarkup = `
-            <article class="cart__item">
+        // Check if the item already exists in the cart
+        console.log(cartFilledContainer);
+        const existingCartItem = cartFilledContainer.querySelector(`.cart__item[data-name="${item.name}"]`);
+        console.log(existingCartItem);
+
+        if (existingCartItem) {
+            this.updateCartItem(existingCartItem, item);
+        } else {
+            // Insert the new cart item at the top
+            const cartItemsContainer = cartFilledContainer.querySelector('.cart__items--container');
+            const itemMarkup = `
+            <article class="cart__item" data-name="${item.name}">
                 <div class="cart__item--details">
                     <p class="cart__item--name item--name">${item.name}</p>
                     <div class="item--details__box">
@@ -68,13 +76,24 @@ export const cartView = {
             </article>
         `;
 
-        cartItemsContainer.insertAdjacentHTML('afterbegin', itemMarkup);
+            cartItemsContainer.insertAdjacentHTML('afterbegin', itemMarkup);
+        }
 
         // Update the total quantity and amount
-        this.updateCartSummary(cartItemsContainer);
+        this.updateCartSummary(cartFilledContainer.querySelector('.cart__items--container'));
+    },
+
+    updateCartItem(cartItemEl, item) {
+        const quantityEl = cartItemEl.querySelector('.cart__item--quantity');
+        const priceTotalEl = cartItemEl.querySelector('.cart__item--price-total');
+
+        // Update quantity and total price
+        quantityEl.textContent = `${item.quantity}x`;
+        priceTotalEl.textContent = `$${(item.price * item.quantity).toFixed(2)}`;
     },
 
     updateCartSummary(cartItemsContainer) {
+        if (!cartItemsContainer) return;
         console.log(cartItemsContainer);
         const totalItems = cartItemsContainer.querySelectorAll('.cart__item').length;
         console.log(totalItems);
@@ -82,11 +101,17 @@ export const cartView = {
             (sum, priceEl) => sum + parseFloat(priceEl.textContent.slice(1)),
             0
         );
+        const totalCartQuantity = Array.from(cartItemsContainer.querySelectorAll('.item--quantity')).reduce(
+            (quantityEl, quantityAmount) => quantityEl + parseFloat(quantityAmount.textContent),
+            0
+        );
+        console.log(totalCartQuantity);
 
         const cartQuantityEl = document.querySelector('.cart__quantity');
         const totalAmountEl = document.querySelector('.cart__items__total--amount');
 
-        cartQuantityEl.textContent = totalItems;
+        console.log(cartQuantityEl);
+        cartQuantityEl.textContent = totalCartQuantity;
         totalAmountEl.textContent = `$${totalAmount.toFixed(2)}`;
     },
 
