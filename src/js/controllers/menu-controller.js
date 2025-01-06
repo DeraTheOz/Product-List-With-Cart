@@ -44,12 +44,18 @@ export const menuController = {
             if (incrementBtn) {
                 const updatedItem = menuModel.incrementItemQuantity(itemName);
                 menuView().updateQuantityDisplay(itemEl, updatedItem.quantity);
+
+                console.log('increased');
+                cartModel.increaseCartItem(itemName);
+
                 return;
             }
 
             // Decrement Button Logic
             if (decrementBtn) {
                 const updatedItem = menuModel.decrementItemQuantity(itemName);
+
+                console.log('decreased');
 
                 if (updatedItem.quantity === 0) {
                     menuView().renderSingleDefaultState(itemEl, updatedItem);

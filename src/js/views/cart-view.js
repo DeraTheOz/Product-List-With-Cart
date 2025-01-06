@@ -67,6 +67,7 @@ export const cartView = {
                 </button>
             </article>
         `;
+
         cartItemsContainer.insertAdjacentHTML('afterbegin', itemMarkup);
 
         // Update the total quantity and amount
@@ -74,7 +75,9 @@ export const cartView = {
     },
 
     updateCartSummary(cartItemsContainer) {
+        console.log(cartItemsContainer);
         const totalItems = cartItemsContainer.querySelectorAll('.cart__item').length;
+        console.log(totalItems);
         const totalAmount = Array.from(cartItemsContainer.querySelectorAll('.cart__item--price-total')).reduce(
             (sum, priceEl) => sum + parseFloat(priceEl.textContent.slice(1)),
             0

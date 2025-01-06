@@ -20,8 +20,17 @@ export const cartModel = {
         return this._cartItems;
     },
 
+    
+
     // Total amount
-    totalAmountCartItems() {},
+    increaseCartItem(itemName) {
+        const updatedItem = this._cartItems.find(cartItem => cartItem.name === itemName);
+        updatedItem.quantity++;
+
+        console.log('NEWSEST UPDATED ITEM', updatedItem);
+
+        cartView.renderCartItem(updatedItem);
+    },
 
     // Total items in cart
     getTotalItemsInCart() {}
