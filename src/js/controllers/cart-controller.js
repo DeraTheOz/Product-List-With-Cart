@@ -48,25 +48,9 @@ export const cartController = {
             // Update cart summary
             cartView.updateCartSummary(document.querySelector('.cart__items--container'));
         }
-
     },
 
-    // removeCartItem(itemName) {
-    //     cartModel.removeItem(itemName);
-    //     const removedItem = cartModel.removeItem(itemName);
-    //     console.log('REMOVED ITEM ', removedItem);
 
-    //     // this.renderCart();
-
-    //     const remainingItems = cartModel.getCartItems();
-    //     console.log('REMAINING ITEMS ', remainingItems);
-
-    //     if (remainingItems.length === 0) {
-    //         cartView.renderEmptyCart();
-    //     } else {
-    //         cartView.renderCartItem(remainingItems);
-    //     }
-    // },
 
     renderCart(item) {
         console.log(item);
