@@ -1,6 +1,6 @@
 import { cartModel } from '../models/cart-model.js';
 import { cartView } from '../views/cart-view.js';
-import { orderModel } from '../models/order-model.js';
+import { menuModel } from '../models/menu-model.js';
 import { menuView } from '../views/menu-item-view.js';
 
 export const cartController = {
@@ -9,9 +9,21 @@ export const cartController = {
         this.eventListeners();
     },
 
-    addItemToCart(item) {
-        console.log(item);
+    eventListeners() {
+        const cartContainer = document.querySelector('.cart__container');
 
+        cartContainer.addEventListener('click', e => {
+            const removeBtn = e.target.closest('.cart__item--btn');
+            if (!removeBtn) return;
+
+            const cartItemEl = removeBtn.closest('.cart__item');
+            const itemName = cartItemEl.dataset.name;
+
+            this.handleRemoveCartItem(itemName);
+        });
+    },
+
+    addItemToCart(item) {
         // If the cart is empty, clear the empty state
         if (cartModel.getCartItems().length === 0) {
             cartView.renderEmptyCart();
@@ -31,13 +43,33 @@ export const cartController = {
     },
 
     handleRemoveCartItem(itemName) {
+        // Restore menu item's default state
+        // Find matching menu item
+        const menuNameEl = Array.from(document.querySelectorAll('.menu__name')).find(
+            item => item.innerHTML === itemName
+        );
+        const menuItemEl = menuNameEl.closest('.menu__item');
+
+        console.log(menuItemEl, itemName);
+
+        // Reset menu item's default state
+        if (menuItemEl) {
+            menuModel.resetItemQuantity(itemName);
+            const updatedMenuItem = menuModel.getMenuItemByName(itemName);
+            menuView().renderSingleDefaultState(menuItemEl, updatedMenuItem);
+        }
+
+        // Remove item from cart
         const { removedItem, isCartEmpty } = cartModel.removeCartItem(itemName);
         if (!removedItem) return;
+        console.log(removedItem);
 
         // Find cart item using it's data-name and remove from cart
         const cartItemEl = document.querySelector(`.cart__item[data-name="${itemName}"]`);
+        console.log(cartItemEl);
         if (cartItemEl) cartItemEl.remove();
 
+        // Handle empty cart state
         if (isCartEmpty) {
             cartView.renderEmptyCart();
         } else {
@@ -46,53 +78,7 @@ export const cartController = {
         }
     },
 
-    removeItemFromCart(menuItemEl, itemName) {
-        // 1, Remove item from cart model
-        const removedItem = cartModel.removeItemByName(itemName);
-        console.log(removedItem);
-
-        // 2, Update cart view
-        cartView.removeCartItemFromView(itemName);
-
-        // 3, Check if cart is empty
-        if (cartModel.getCartItems().length === 0) {
-            cartView.renderEmptyCart();
-        }
-
-        // 4, Reset menu item state
-        if (removedItem) {
-            // const menuItemEl = document.querySelector(`.cart__item[data-name="${itemName}"]`);
-            console.log(menuItemEl);
-
-            // Reset quantity in the model
-            removedItem.quantity = 0;
-            menuView().renderSingleDefaultState(menuItemEl, removedItem);
-            // if (menuItemEl) {
-            // }
-        }
-    },
-
     renderCart(item) {
         cartView.renderCartItem(item);
-    },
-
-    eventListeners() {
-        const cartItemsContainer = document.querySelector('.cart__items--container');
-        console.log(cartItemsContainer);
-
-        cartItemsContainer.addEventListener('click', function (e) {
-            const removeBtn = e.target.closest('.cart__item--btn');
-            if (!removeBtn) return;
-
-            // Get name of item
-            const cartItemEl = removeBtn.closest('.cart__item');
-            const cartItemName = cartItemEl.dataset.name;
-            console.log(cartItemEl);
-            console.log(cartItemName);
-
-            // Remove item
-            console.log(cartController);
-            cartController.removeItemFromCart(cartItemEl, cartItemName);
-        });
     }
 };

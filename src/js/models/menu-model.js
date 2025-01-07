@@ -21,6 +21,7 @@ export const menuModel = {
     },
 
     incrementItemQuantity(name) {
+        
         const item = this.getMenuItemByName(name);
         if (!item) return null;
 
@@ -34,5 +35,11 @@ export const menuModel = {
 
         item.quantity === 0 ? (item.quantity = 0) : item.quantity--;
         return item;
+    },
+
+    resetItemQuantity(itemName) {
+        const item = this._menuData.find(menuItem => menuItem.name === itemName);
+        item.quantity = 0;
+        console.log(item);
     }
 };
