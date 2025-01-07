@@ -37,6 +37,10 @@ export const menuController = {
 
                 menuView().updateButtonState(itemEl, clickedMenuItem, true);
                 cartController.addItemToCart(clickedMenuItem);
+
+                // Call event on cart filled container
+                cartController.eventListeners();
+
                 return;
             }
 

@@ -58,13 +58,27 @@ export const menuView = function () {
                 `;
         },
 
-        renderSingleDefaultState(menuEl, menuItem) {
+        renderSingleDefaultState(menuItemEl, menuItem) {
             // Generate default button markup
-            const defaultMarkup = this.generateMarkup(menuItem, false).replace(/<article[^>]*>|<\/article>/g, ''); // Strip wrapping <article> tags
+            const defaultMarkup = this.generateMarkup(menuItem, false).replace(/<article[^>]*>|<\/article>/g, '');
+
+            console.log(menuItemEl, menuItem);
+
+            // menuItemEl.closest('.menu__btn').disabled = false;
+            // menuItemEl.closest('.menu__quantity').textContent = ''; // Clear displayed quantity
+            // menuItemEl.closest('.menu__price-total').textContent = ''; // Clear total price
 
             // Replace the button content only
-            menuEl.innerHTML = defaultMarkup;
+            menuItemEl.innerHTML = defaultMarkup;
         },
+
+        // renderSingleDefaultState(menuItemEl, menuItem) {
+        //     // Generate default button markup
+        //     const defaultMarkup = this.generateMarkup(menuItem, false).replace(/<article[^>]*>|<\/article>/g, ''); // Strip wrapping <article> tags
+
+        //     // Replace the button content only
+        //     menuItemEl.innerHTML = defaultMarkup;
+        // },
 
         renderDefaultState(menuData) {
             const markup = menuData.map(item => this.generateMarkup(item)).join('');

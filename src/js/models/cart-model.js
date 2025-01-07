@@ -25,12 +25,25 @@ export const cartModel = {
         return { removedItem, isCartEmpty };
     },
 
+    removeItemByName(itemName) {
+        const itemIndex = this._cartItems.findIndex(item => item.name === itemName);
+        if (itemIndex === -1) return null;
+        
+            // Remove the item from cart
+            return this._cartItems.splice(itemIndex, 1)[0];
+            
+
+        
+    },
+
     updateItem(menuItem) {
+        console.log(menuItem);
         const existingItem = this._cartItems.find(cartItem => cartItem.name === menuItem.name);
         if (existingItem) {
             existingItem.quantity = menuItem.quantity;
             existingItem.price = menuItem.price;
         }
+        console.log(existingItem);
     },
 
     getCartItems() {
