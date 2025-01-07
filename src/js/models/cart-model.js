@@ -6,14 +6,23 @@ export const cartModel = {
 
     // Add items
     addItem(menuItem) {
-        console.log(menuItem);
         const existingItem = this._cartItems.find(cartItem => cartItem.name === menuItem.name);
         if (!existingItem) this._cartItems.push({ ...menuItem });
     },
 
     // Remove item
-    removeItem(itemName) {
-        this._cartItems = this._cartItems.filter(cartItem => cartItem.name !== itemName);
+    removeCartItem(itemName) {
+        const itemIndex = this._cartItems.findIndex(cartItem => cartItem.name === itemName);
+        console.log(itemIndex);
+        if (itemIndex === -1) return null;
+
+        // Remove the item from cart
+        const removedItem = this._cartItems.splice(itemIndex, 1)[0];
+        console.log(removedItem);
+
+        const isCartEmpty = this._cartItems.length === 0; // Checks if cart is empty
+
+        return { removedItem, isCartEmpty };
     },
 
     updateItem(menuItem) {
@@ -22,8 +31,6 @@ export const cartModel = {
             existingItem.quantity = menuItem.quantity;
             existingItem.price = menuItem.price;
         }
-        console.log(menuItem);
-        console.log(existingItem);
     },
 
     getCartItems() {

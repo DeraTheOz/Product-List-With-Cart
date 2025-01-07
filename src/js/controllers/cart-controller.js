@@ -5,7 +5,6 @@ import { orderModel } from '../models/order-model.js';
 export const cartController = {
     init() {
         cartView.renderEmptyCart();
-        console.log(cartModel._cartItems.length);
     },
 
     addItemToCart(item) {
@@ -29,19 +28,15 @@ export const cartController = {
         this.renderCart(menuItem);
     },
 
-    removeCartItem(itemName) {
-        cartModel.removeItem(itemName);
+    handleRemoveCartItem(itemName) {
+        const { removedItem, isCartEmpty } = cartModel.removeCartItem(itemName);
+        if (!removedItem) return;
 
-        // Locate cart item using it's data-name and remove from cart
+        // Find cart item using it's data-name and remove from cart
         const cartItemEl = document.querySelector(`.cart__item[data-name="${itemName}"]`);
         if (cartItemEl) cartItemEl.remove();
 
-        // Get remaining cart items from model
-        const remainingItems = cartModel.getCartItems();
-        console.log('REMOVED ITEM ', itemName);
-        console.log('REMAINING ITEMS ', remainingItems);
-
-        if (remainingItems.length === 0) {
+        if (isCartEmpty) {
             cartView.renderEmptyCart();
         } else {
             // Update cart summary
