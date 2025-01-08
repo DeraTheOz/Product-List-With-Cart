@@ -2,6 +2,7 @@ import { cartModel } from '../models/cart-model.js';
 import { cartView } from '../views/cart-view.js';
 import { menuModel } from '../models/menu-model.js';
 import { menuView } from '../views/menu-item-view.js';
+import { orderController } from './order-controller.js';
 
 export const cartController = {
     init() {
@@ -13,6 +14,11 @@ export const cartController = {
         const cartContainer = document.querySelector('.cart__container');
 
         cartContainer.addEventListener('click', e => {
+            const confirmOrderBtn = cartContainer.querySelector('.cart__order--btn');
+            // if (e.target === confirmOrderBtn) {
+
+            // }
+
             const removeBtn = e.target.closest('.cart__item--btn');
             if (!removeBtn) return;
 

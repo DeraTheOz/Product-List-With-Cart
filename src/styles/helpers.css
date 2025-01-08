@@ -92,13 +92,3 @@
     background-color: var(--Dark-Red);
 }
 
-.modal {
-    width: 100svw;
-    height: 100svh;
-    background-color: rgba(184, 184, 184, 0.4);
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    display: none;
-}

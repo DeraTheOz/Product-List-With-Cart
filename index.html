@@ -10,7 +10,7 @@
         <script defer src="src/js/controllers/App.js"></script>
         <title>Product list with cart</title>
     </head>
-    <body>
+    <body class="no-scroll">
         <main>
             <section class="menu">
                 <div class="container">
@@ -20,52 +20,11 @@
                 </div>
 
                 <!-- CART CONTAINER START -->
-                <div class="cart__container"></div>
+                <div class="cart__container" aria-live="polite"></div>
                 <!-- CART CONTAINER END -->
             </section>
 
-            <!-- ORDER CONFIRMATION MODAL START -->
-            <div class="modal"></div>
-            <div class="order__confirmation">
-                <svg class="icon-order-confirmed" aria-hidden="true">
-                    <use xlink:href="src/assets/images/icon-order-confirmed.svg#icon-confirmed"></use>
-                </svg>
-                <h3 class="order__title">Order Confirmed</h3>
-                <p class="order__text">We hope you enjoy your food!</p>
 
-                <!-- ORDER DETAILS START -->
-                <div class="order__details">
-                    <!-- ORDER ITEMS START -->
-                    <div class="order__items--container">
-                        <article class="order__item">
-                            <img
-                                class="order__item--img"
-                                src="src/assets/images/image-waffle-desktop.jpg"
-                                alt="Waffle with berries"
-                            />
-                            <div class="order__item--details">
-                                <p class="order__item--name item--name">Classic Tiramisu</p>
-                                <div class="item--details__box">
-                                    <span class="order__item--quantity item--quantity">1x</span>
-                                    <span class="order__item--price item--price">@$6.50</span>
-                                </div>
-                            </div>
-                            <p class="order__item__price--total">$6.50</p>
-                        </article>
-                    </div>
-                    <!-- ORDER ITEMS END TOTAL AMOUNT ORDERED ITEMS START -->
-                    <div class="order__items__total">
-                        <p>Order Total</p>
-                        <p class="order__items__total--amount">$46.50</p>
-                    </div>
-                    <!-- TOTAL AMOUNT ORDERED ITEMS END -->
-                </div>
-                <!-- ORDER DETAILS END -->
-
-                <button type="button" class="order__confirmation--btn cta-btn">Start New Order</button>
-            </div>
-
-            <!-- ORDER CONFIRMATION MODAL END -->
         </main>
     </body>
 </html>
