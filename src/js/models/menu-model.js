@@ -39,7 +39,6 @@ export const menuModel = {
     resetItemQuantity(itemName) {
         const item = this._menuData.find(menuItem => menuItem.name === itemName);
         item.quantity = 0;
-        console.log(item);
     },
 
     getAllMenuItems() {

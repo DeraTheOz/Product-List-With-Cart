@@ -68,7 +68,6 @@ export const cartController = {
 
         // Find cart item using it's data-name and remove from cart
         const cartItemEl = document.querySelector(`.cart__item[data-name="${itemName}"]`);
-        console.log(cartItemEl);
         if (cartItemEl) cartItemEl.remove();
 
         // Handle empty cart state

@@ -1,3 +1,5 @@
+import { icons } from '../../assets/icons/icons.svg';
+
 export const orderView = {
     renderModal(cartItems, totalAmount) {
         // Create modal markup
@@ -5,7 +7,7 @@ export const orderView = {
         <div class="overlay">
             <div class="order__confirmation">
                 <svg class="icon-order-confirmed" aria-hidden="true">
-                    <use xlink:href="src/assets/images/icon-order-confirmed.svg#icon-confirmed"></use>
+                    <use xlink:href="${icons}#icon-order-confirmed"></use>
                 </svg>
                 <h3 class="order__title">Order Confirmed</h3>
                 <p class="order__text">We hope you enjoy your food!</p>
