@@ -20,13 +20,12 @@ export const orderView = {
                                 item => `
                             <article class="order__item">
                                 <picture>
-                                    <source srcset="${item.image.mobile}" type="image/jpg" media="(max-width: 480px)" />
-                                    <source srcset="${
-                                        item.image.tablet
-                                    }" type="image/jpg" media="(max-width: 1024px)" />
-                                    <source srcset="${
-                                        item.image.desktop
-                                    }" type="image/jpg" media="(min-width: 1025px)" />
+                                    <source srcset="${item.image.mobile}"
+                                    type="image/jpg" media="(max-width: 31.25rem)" />
+                                    <source srcset="${item.image.tablet}" type="image/jpg" media="(max-width:
+                                    56.813rem)" />
+                                    <source srcset="${item.image.desktop}" type="image/jpg" media="(min-width:
+                                    56.875)" />
                                     <img src="${item.image.thumbnail}" alt="${item.name}" class="order__item--img" />
                                 </picture>
                                 <div class="order__item--details">

@@ -12,9 +12,12 @@ export const menuView = function () {
                     <article class="menu__item">
                         <figure class="menu__img--box ${clicked ? 'menu__img--border' : ''}">
                             <picture>
-                                <source srcset="${mobile}" type="image/jpg" media="(max-width: 480px)" />
-                                <source srcset="${tablet}" type="image/jpg" media="(max-width: 1024px)" />
-                                <source srcset="${desktop}" type="image/jpg" media="(min-width: 1025px)" />
+                                <source srcset="${mobile}" type="image/jpg"
+                                media="(max-width: 31.25rem)" />
+                                <source srcset="${tablet}" type="image/jpg"
+                                media="(max-width: 56.813rem)" />
+                                <source srcset="${desktop}" type="image/jpg"
+                                media="(min-width: 56.875rem)" />
                                 <img src="${thumbnail}" alt="${name}" class="menu__img" />
                             </picture>
                             ${
