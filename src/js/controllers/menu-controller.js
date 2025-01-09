@@ -2,21 +2,7 @@ import { menuModel } from '../models/menu-model.js';
 import { menuView } from '../views/menu-view.js';
 import { cartController } from '../controllers/cart-controller.js';
 
-/////////////////////////////////////////////////////
 export const menuController = {
-    // init() {
-    //     const menuItems = menuModel.getAllMenuItems();
-    //     if (menuItems.length > 0) {
-    //         menuView().renderAllDefaultStates(menuItems);
-    //     } else {
-    //         // Fetch menu data
-    //         // const fetchedMenuItems = fetchMenuItems(); // Example function
-    //         menuModel.setMenuItems(menuItems);
-    //         menuView().renderAllDefaultStates(menuItems);
-    //     }
-    //     this.eventListeners();
-    // },
-
     init() {
         // Fetch menu data
         const menuData = menuModel.getMenuData();

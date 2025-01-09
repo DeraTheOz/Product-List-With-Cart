@@ -115,6 +115,6 @@ export const resolveImagePaths = function (data) {
         item.image.mobile = imageMap[item.image.mobile];
         item.image.tablet = imageMap[item.image.tablet];
         item.image.desktop = imageMap[item.image.desktop];
-        return item
+        return item;
     });
 };
