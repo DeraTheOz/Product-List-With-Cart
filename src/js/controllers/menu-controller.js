@@ -48,16 +48,12 @@ export const menuController = {
                 cartController.updateCartItem(updatedItem);
 
                 menuView().updateQuantityDisplay(itemEl, updatedItem.quantity);
-
-                console.log('increased');
                 return;
             }
 
             // Decrement Button Logic
             if (decrementBtn) {
                 const updatedItem = menuModel.decrementItemQuantity(itemName);
-
-                console.log('decreased');
 
                 // Remove item from cart if quantity reaches 0
                 if (updatedItem.quantity === 0) {

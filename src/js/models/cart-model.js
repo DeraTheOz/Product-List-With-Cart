@@ -13,26 +13,21 @@ export const cartModel = {
     // Remove item
     removeCartItem(itemName) {
         const itemIndex = this._cartItems.findIndex(cartItem => cartItem.name === itemName);
-        console.log(itemIndex);
         if (itemIndex === -1) return null;
 
         // Remove the item from cart
         const removedItem = this._cartItems.splice(itemIndex, 1)[0];
-        console.log(removedItem);
-
         const isCartEmpty = this._cartItems.length === 0; // Checks if cart is empty
 
         return { removedItem, isCartEmpty };
     },
 
     updateItem(menuItem) {
-        console.log(menuItem);
         const existingItem = this._cartItems.find(cartItem => cartItem.name === menuItem.name);
         if (existingItem) {
             existingItem.quantity = menuItem.quantity;
             existingItem.price = menuItem.price;
         }
-        console.log(existingItem);
     },
 
     getCartItems() {

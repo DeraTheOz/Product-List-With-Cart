@@ -58,6 +58,21 @@ export const menuView = function () {
                 `;
         },
 
+        renderAllDefaultStates(menuItems) {
+            menuItems.forEach(menuItem => {
+                // Find the corresponding DOM element for the menu item
+                const menuNameEl = Array.from(document.querySelectorAll('.menu__name')).find(
+                    item => item.textContent === menuItem.name
+                );
+                const menuItemEl = menuNameEl?.closest('.menu__item');
+
+                // Reset its display to default state
+                if (menuItemEl) {
+                    this.renderSingleDefaultState(menuItemEl, menuItem);
+                }
+            });
+        },
+
         renderSingleDefaultState(menuItemEl, menuItem) {
             // Generate default button markup
             const defaultMarkup = this.generateMarkup(menuItem, false).replace(/<article[^>]*>|<\/article>/g, ''); // Strip wrapping <article> tags

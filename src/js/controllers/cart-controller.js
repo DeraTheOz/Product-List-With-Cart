@@ -15,9 +15,9 @@ export const cartController = {
 
         cartContainer.addEventListener('click', e => {
             const confirmOrderBtn = cartContainer.querySelector('.cart__order--btn');
-            // if (e.target === confirmOrderBtn) {
-
-            // }
+            if (e.target === confirmOrderBtn) {
+                orderController.init();
+            }
 
             const removeBtn = e.target.closest('.cart__item--btn');
             if (!removeBtn) return;
@@ -43,7 +43,6 @@ export const cartController = {
     },
 
     updateCartItem(menuItem) {
-        console.log(menuItem);
         cartModel.updateItem(menuItem);
         this.renderCart(menuItem);
     },
@@ -56,8 +55,6 @@ export const cartController = {
         );
         const menuItemEl = menuNameEl.closest('.menu__item');
 
-        console.log(menuItemEl, itemName);
-
         // Reset menu item's default state
         if (menuItemEl) {
             menuModel.resetItemQuantity(itemName);
@@ -68,7 +65,6 @@ export const cartController = {
         // Remove item from cart
         const { removedItem, isCartEmpty } = cartModel.removeCartItem(itemName);
         if (!removedItem) return;
-        console.log(removedItem);
 
         // Find cart item using it's data-name and remove from cart
         const cartItemEl = document.querySelector(`.cart__item[data-name="${itemName}"]`);

@@ -19,7 +19,6 @@ export const cartView = {
     },
 
     renderCartItem(item) {
-        console.log(item);
         const cartContainer = document.querySelector('.cart__container');
 
         // Check if the filled state already exists
@@ -51,7 +50,6 @@ export const cartView = {
 
         // Check if the item already exists in the cart
         const existingCartItem = cartFilledContainer.querySelector(`.cart__item[data-name="${item.name}"]`);
-
         if (existingCartItem) {
             this.updateCartItem(existingCartItem, item);
         } else {
