@@ -1,14 +1,14 @@
 .cart__container {
     display: flex;
     flex-direction: column;
-    border: 1px solid green;
+}
+
+.cart__empty,
+.cart__filled {
+    padding: 1.5rem 1rem;
 }
 
 /* // CART EMPTY STATE START // */
-.cart__empty {
-    margin-bottom: 2rem;
-}
-
 .cart__title {
     font-size: 1rem;
     font-weight: 700;
@@ -25,8 +25,7 @@
 
 /* // CART FILLED STATE START // */
 .cart__items--container {
-    /* max-height: 18.75rem; */ /* // SHOW FOUR ITEMS */
-    max-height: 23.438rem; /* // SHOW FIVE ITEMS */
+    max-height: 18.75rem; /* // SHOW FOUR ITEMS */
     overflow-y: scroll;
     padding-right: 0.5rem;
 }

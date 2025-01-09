@@ -9,34 +9,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* opacity: 0;
-    visibility: hidden;
-    pointer-events: none; */
 }
-
-/* body.no-scroll {
-    overflow: hidden;
-    min-height: 100svh;
-} */
 
 /* // ORDER CONFIRMATION STATE START // */
 .order__confirmation {
     width: clamp(23.438rem, 100%, 30rem);
     display: flex;
     flex-direction: column;
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
     z-index: 2000;
 }
 
 .order__title {
     font-size: 2rem;
-    padding: 0.8rem 0 0.3rem;
+    padding: 1rem 0 0.3rem;
 }
 
 .order__text {

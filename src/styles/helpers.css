@@ -1,13 +1,6 @@
-/* .menu,
-.container,
-.cart__empty,
-.cart__filled {
-    border: 1px solid red;
-} */
-
 /* ACTIVE class for menu image */
 .menu__img--border {
-    border: 2px solid var(--Red);
+    border: 2px solid var(--Red) !important;
 }
 
 .cart__empty,
@@ -15,11 +8,6 @@
 .order__confirmation {
     background-color: #fff;
     border-radius: 8px;
-    padding: 1.5rem 1rem;
-}
-
-.cart__filled {
-    grid-column: 2;
 }
 
 .items--center {
@@ -91,4 +79,3 @@
     border: 1px solid var(--Dark-Red);
     background-color: var(--Dark-Red);
 }
-

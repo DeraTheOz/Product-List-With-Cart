@@ -1,5 +1,6 @@
+@import './reset.css';
+@import './helpers.css';
 @import './menu.css';
 @import './cart.css';
 @import './order-confirmation.css';
-@import './helpers.css';
-@import './reset.css';
+@import './queries.css';
