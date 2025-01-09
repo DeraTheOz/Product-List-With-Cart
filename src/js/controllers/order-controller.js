@@ -1,8 +1,8 @@
-import { orderView } from '../views/order-view.js';
+import { menuModel } from '../models/menu-model.js';
+import { menuView } from '../views/menu-view.js';
 import { cartModel } from '../models/cart-model.js';
 import { cartView } from '../views/cart-view.js';
-import { menuModel } from '../models/menu-model.js';
-import { menuView } from '../views/menu-item-view.js';
+import { orderView } from '../views/order-view.js';
 
 export const orderController = {
     init() {

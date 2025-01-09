@@ -1,7 +1,5 @@
 import { menuModel } from '../models/menu-model.js';
 import { menuView } from '../views/menu-view.js';
-import { cartModel } from '../models/cart-model.js';
-import { cartView } from '../views/cart-view.js';
 import { cartController } from '../controllers/cart-controller.js';
 
 /////////////////////////////////////////////////////

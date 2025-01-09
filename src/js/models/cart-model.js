@@ -1,5 +1,3 @@
-import { cartView } from '../views/cart-view.js';
-
 // Holds cart items and methods for adding and removing items
 export const cartModel = {
     _cartItems: [],
