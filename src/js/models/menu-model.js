@@ -45,3 +45,37 @@ export const menuModel = {
         return this._menuData;
     }
 };
+
+// Testing localStorage
+// export const menuModel = {
+//     _menuData: productData.map(item => ({ ...item, quantity: 0 })),
+//     _menuItems: JSON.parse(localStorage.getItem('menuItems')) || [],
+
+//     getMenuData() {
+//         const resolvedData = resolveImagePaths(this._menuData);
+//         return resolvedData;
+//     },
+
+//     setMenuItems(menuItems) {
+//         this._menuData = menuItems;
+//         this._saveToLocalStorage();
+//     },
+
+//     getMenuItemByName(name) {
+//         return this._menuData.find(item => item.name === name);
+//     },
+
+//     resetItemQuantity(itemName) {
+//         const menuItem = this.getMenuItemByName(itemName);
+//         if (menuItem) menuItem.quantity = 0;
+//         this._saveToLocalStorage();
+//     },
+
+//     getAllMenuItems() {
+//         return this._menuData;
+//     },
+
+//     _saveToLocalStorage() {
+//         localStorage.setItem('menuItems', JSON.stringify(this._menuItems));
+//     }
+// };

@@ -5,6 +5,17 @@ import { cartView } from '../views/cart-view.js';
 import { orderController } from './order-controller.js';
 
 export const cartController = {
+    // init() {
+    //     const savedCartItems = cartModel.getCartItems();
+    //     if (savedCartItems.length > 0) {
+    //         savedCartItems.forEach(item => cartView.renderCartItem(item));
+    //         cartView.updateCartSummary(document.querySelector('.cart__items--container'));
+    //     } else {
+    //         cartView.renderEmptyCart();
+    //     }
+    //     this.eventListeners();
+    // },
+
     init() {
         cartView.renderEmptyCart();
         this.eventListeners();
