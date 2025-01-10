@@ -6,7 +6,7 @@ export const cartView = {
 
         const emptyMarkup = `
             <aside class="cart__empty">
-                <h3 class="cart__title">Your Cart (<span aria-live="polite" class="cart__quantity">0</span>)</h3>
+                <h2 class="cart__title">Your Cart (<span aria-live="polite" class="cart__quantity">0</span>)</h2>
                 <div class="cart__items--container items--center">
                     <svg class="icon-cart-empty" aria-hidden="true">
                         <use xlink:href="${icons}#illustration-empty-cart"></use>
@@ -27,7 +27,7 @@ export const cartView = {
             // If not, create and add it
             const filledMarkup = `
                 <aside class="cart__filled">
-                    <h3 class="cart__title">Your Cart (<span aria-live="polite" class="cart__quantity">1</span>)</h3>
+                    <h2 class="cart__title">Your Cart (<span aria-live="polite" class="cart__quantity">1</span>)</h2>
                     <div class="cart__items--box">
                         <div class="cart__items--container"></div>
                         <div class="cart__items__total">
